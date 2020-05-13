@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Zoom-Image</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-xs="12" size-sm="12" size-md="12" size-lg="12">
+        <!-- Desktop Carousel -->
+        <ion-row [hidden]="devWidth <= 768 ">
+          <ion-col style="padding: 0;" size="1">
+            <ion-item
+              lines="none"
+              button
+              detail="false"
+              (click)="slideTo(i)"
+              *ngFor="let img of data[0].imgs; let i = index"
+            >
+              <img
+                style="
+                  margin-top: 2%;
+                  margin-bottom: 2%;
+                  margin-left: 2%;
+                  margin-right: 2%;
+                  width: 50px;
+                  height: 50px;
+                "
+                class="thumb-avatar-slide"
+                src="{{ img }}"
+              />
+            </ion-item>
+          </ion-col>
+          <ion-col style="padding: 0;" size="11">
+            <ion-slides
+              class="swiper-container gallery-top"
+              pager="true"
+              [options]="sliderOpts"
+              #slider
+              #slideWithNav2
+            >
+              <ion-slide
+                class="swiper-wrapper"
+                *ngFor="let img of data[0].imgs; let i = index"
+              >
+                <img
+                  style="width: 65%; display: block; margin: auto;"
+                  class="swiper-slide"
+                  src="{{ img }}"
+                  (click)="openPreview(data[0].imgs)"
+                />
+              </ion-slide>
+            </ion-slides>
+          </ion-col>
+        </ion-row>
+
+        <!-- Mobile Carousel -->
+        <ion-row [hidden]="devWidth >= 769 ">
+          <ion-col nopadding size-xs="1" size-sm="1" size-md="1" size-lg="1">
+            <div
+              (click)="slidePrev(slideWithNav2)"
+              class="swiper-button-prev"
+            ></div>
+          </ion-col>
+          <ion-col
+            nopadding
+            size-xs="10"
+            size-sm="10"
+            size-md="10"
+            size-lg="10"
+          >
+            <ion-slides
+              class="swiper-container gallery-top"
+              pager="true"
+              [options]="sliderOpts2"
+              #slider
+              #slideWithNav2
+            >
+              <ion-slide
+                class="swiper-wrapper"
+                *ngFor="let img of data[0].imgs"
+              >
+                <img
+                  class="swiper-slide"
+                  src="{{ img }}"
+                  (click)="openPreviewMobile(data[0].imgs)"
+                />
+              </ion-slide>
+            </ion-slides>
+          </ion-col>
+          <ion-col nopadding size-xs="1" size-sm="1" size-md="1" size-lg="1">
+            <div
+              (click)="slideNext(slideWithNav2)"
+              class="swiper-button-next"
+            ></div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,22 +1,32 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
+    path: "",
+    redirectTo: "image",
+    pathMatch: "full",
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  }
+    path: "image",
+    loadChildren: () =>
+      import("./pages/zoom-image/image/image.module").then(
+        (m) => m.ImagePageModule
+      ),
+  },
+  {
+    path: "image-modal",
+    loadChildren: () =>
+      import("./pages/zoom-image/image-modal/image-modal.module").then(
+        (m) => m.ImageModalPageModule
+      ),
+  },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

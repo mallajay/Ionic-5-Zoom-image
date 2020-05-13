@@ -1,0 +1,43 @@
+.toolbar {
+  --ion-toolbar-background: white;
+  --ion-toolbar-color: var(--ion-color-primary-contrast);
+}
+
+.image {
+  // height: 40%;
+  // width: 65%;
+  height: 100%;
+  //   width: 49%;
+  width: 101%;
+  cursor: zoom-in;
+}
+
+@media screen and (max-width: 600px) {
+  .image {
+    height: 100%;
+    width: 95%;
+    cursor: zoom-in;
+  }
+}
+
+.thumb-avatar-slide {
+  width: 38px;
+  height: 50px;
+  opacity: 0.4;
+  border: 1px solid #f1f8fe;
+  margin: 10px;
+}
+
+.thumb-avatar-slide:hover {
+  opacity: 1;
+  box-shadow: 1px solid black;
+  border: 2px solid #21277b;
+}
+
+// .img {
+//   width: 52%;
+// }
+
+.fullscreen {
+  max-width: none !important;
+}

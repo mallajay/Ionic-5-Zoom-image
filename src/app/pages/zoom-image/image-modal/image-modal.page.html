@@ -1,0 +1,73 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item lines="none">
+          <ion-buttons slot="end">
+            <ion-button (click)="zoom(true)" fill="clear" color="dark">
+              <ion-icon name="add" slot="start"></ion-icon>
+              In
+            </ion-button>
+
+            <ion-button (click)="zoom(false)" fill="clear" color="dark">
+              <ion-icon name="remove" slot="start"></ion-icon>
+              Out
+            </ion-button>
+            <ion-button (click)="close()">
+              <ion-icon name="close" color="dark"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-row>
+          <ion-col
+            size-xs="12"
+            size-sm="12"
+            size-md="12"
+            size-lg="8"
+            size-xl="8"
+          >
+            <ion-slides
+              loop="true"
+              pager="true"
+              [options]="sliderOpts"
+              #slider
+              #slideWithNav
+            >
+              <ion-slide *ngFor="let img of imgURL">
+                <div class="swiper-zoom-container">
+                  <img class="image" src="{{ img }}" />
+                </div>
+              </ion-slide>
+            </ion-slides>
+          </ion-col>
+          <ion-col
+            size-xs="12"
+            size-sm="12"
+            size-md="12"
+            size-lg="4"
+            size-xl="4"
+          >
+            <ion-row>
+              <ion-col
+                size="3"
+                (click)="slideTo(i)"
+                *ngFor="let img of imgURL; let i = index"
+              >
+                <img
+                  style="padding-left: 0px; padding-right: 0px;"
+                  class="thumb-avatar-slide "
+                  src="{{ img }}"
+                />
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
