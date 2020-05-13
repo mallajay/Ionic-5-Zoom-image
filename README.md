@@ -2,7 +2,7 @@
 Zoom Image like Amazon and Flipkart Using Swiper API of Ionic 5 by using Ionic Modal with custom Controls
 
 ## Click here For Preview
-[Live Demo](https://100dailyui.webflow.io/)
+[Live Demo](https://youtu.be/8mNKkApofsI)
 
 ```
 npm install
